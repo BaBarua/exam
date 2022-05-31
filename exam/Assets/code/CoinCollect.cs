@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class CoinCollect : MonoBehaviour
 {
-    public Text text;
-    private int score = 0;
+    public TextMeshProUGUI text;
+    public int score = 0;
 
     private void Start()
     {
@@ -24,15 +25,17 @@ public class CoinCollect : MonoBehaviour
         {
             Destroy(collision.gameObject);
             score = score + 5;
-            text.text = score.ToString();
-            
+            text.text = ("Score :") + score.ToString();
+
+
         }
 
         if (collision.collider.tag == "Meto")
         {
             Destroy(collision.gameObject);
             score = score - 1;
-            text.text = score.ToString();
+            text.text = ("Score :") + score.ToString();
+
 
         }
     }
